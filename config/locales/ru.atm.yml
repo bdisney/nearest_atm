@@ -1,0 +1,8 @@
+ru:
+  atms:
+    new:
+      page_name: Новый банкомат
+    create:
+      page_name: Новый банкомат
+    index:
+      page_name: Ближайшие банкоматы

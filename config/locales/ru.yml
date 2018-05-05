@@ -6,6 +6,8 @@ ru:
     new: Добавить
     save: Сохранить
   activerecord:
+    notices:
+      atm_cteated: Банкомат успешно создан
     errors:
       header_title:
         При сохранение проиизошли следующие ошибки

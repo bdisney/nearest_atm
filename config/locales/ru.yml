@@ -1,0 +1,30 @@
+ru:
+  buttons:
+    back: Назад
+    edit: Редактировать
+    show: Просмотр
+    new: Добавить
+    save: Сохранить
+  activerecord:
+    errors:
+      header_title:
+        При сохранение проиизошли следующие ошибки
+      models:
+        atm:
+          attributes:
+            location:
+              invalid: невалидна
+        location:
+          attributes:
+            default_settings: &default_settings
+              blank: не может быть пустым
+            latitude:
+              <<: *default_settings
+            longitude:
+              <<: *default_settings
+    attributes:
+      atm:
+        address: Адрес банкомата
+      location:
+        latitude: Широта
+        longitude: Долгота

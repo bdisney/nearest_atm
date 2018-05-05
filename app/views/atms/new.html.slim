@@ -1,0 +1,4 @@
+h3 Новый банкомат
+- if @atm.errors.any?
+  = render partial: 'shared/flash_messages', locals: { resource: @atm }
+= render 'form'

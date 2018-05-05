@@ -1,0 +1,20 @@
+= form_for @atm, html: { class: 'form form-horizontal' } do |f|
+  .form-group
+    label.col-sm-2.control-label for="atm_address"
+      = Atm.human_attribute_name(:address)
+    .col-sm-6
+      = f.text_field :address, class: 'form-control'
+  = f.fields_for :location, f.object.location || f.object.build_location do |loc|
+    .form-group
+      label.col-sm-2.control-label for="atm_location_latitude"
+        = Location.human_attribute_name(:latitude)
+      .col-sm-6
+        = loc.text_field :latitude, class: 'form-control'
+    .form-group
+      label.col-sm-2.control-label for="atm_location_longitude"
+        = Location.human_attribute_name(:longitude)
+      .col-sm-6
+        = loc.text_field :longitude, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-6
+      = f.submit t('buttons.save'), class: 'btn btn-default'

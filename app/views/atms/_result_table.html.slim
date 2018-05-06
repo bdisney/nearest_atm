@@ -4,9 +4,9 @@ table.table.table-condensed.text-center
   thead
     tr
       th.text-center #
-      th.text-center = 'Банкомат'
-      th.text-center = 'Адрес'
-      th.text-center = 'Расстояние (км)'
+      th.text-center = t('activemodel.attributes.atm_filter.atm')
+      th.text-center = t('activemodel.attributes.atm_filter.address')
+      th.text-center = t('activemodel.attributes.atm_filter.distance')
   tbody
     - @results.each.with_index(1) do |record, index|
       tr

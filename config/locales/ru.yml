@@ -11,6 +11,9 @@ ru:
       atm_filter:
         latitude: Широта
         longitude: Долгота
+        atm: Банкомат
+        distance: Расстояние (км)
+        address: Адрес
     errors:
       models:
         atm_filter:

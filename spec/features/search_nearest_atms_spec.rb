@@ -6,7 +6,7 @@ feature 'Search nearest atms', %q{
   I want to be able to search nearest atms
 } do
 
-  given!(:atm_1) { create(:atm_with_location) }
+  given!(:atm_1) { create(:atm) }
 
   scenario 'User search atms with valid data' do
     visit home_path

@@ -9,8 +9,8 @@ RSpec.describe AtmFilter do
         { 'latitude' => 22, 'longitude' => 33 }
       end
 
-      let!(:atm_1) { create(:atm_with_location) }
-      let!(:atm_2) { create(:atm_with_location) }
+      let!(:atm_1) { create(:atm) }
+      let!(:atm_2) { create(:atm) }
 
       it 'finds locations by latitude and longitude' do
         Rails.cache.clear

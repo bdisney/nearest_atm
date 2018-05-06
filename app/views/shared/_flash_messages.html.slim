@@ -3,7 +3,7 @@
     button type="button" class="close" data-dismiss="alert" aria-label="Close"
       span aria-hidden="true" &times;
     p = t('activerecord.errors.header_title')
-    ul
-      - resource.errors.messages.each do |attribute, messages|
-        - messages.each do |message|
-          li= "#{attribute} #{message}"
+    - resource.errors.messages.each do |attribute, messages|
+      - messages.each do |message|
+        = "#{attribute} #{message}"
+        br

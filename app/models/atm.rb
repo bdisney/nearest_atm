@@ -1,7 +1,7 @@
 class Atm < ApplicationRecord
   has_one :location, dependent: :destroy
 
-  validates_associated :location
+  validate :location_fields, if: :location_invalid?
 
   DISTANCE_THRESHOLD = 25000.freeze
 
@@ -18,5 +18,17 @@ class Atm < ApplicationRecord
         LIMIT 5;
       ")
     }
+  end
+
+  private
+
+  def location_invalid?
+    !location.valid?
+  end
+
+  def location_fields
+    location.errors.messages.each do |field, msgs|
+      errors.add(I18n.t("activerecord.attributes.location.#{field}"), msgs.join(', '))
+    end
   end
 end

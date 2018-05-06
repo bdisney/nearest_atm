@@ -16,11 +16,11 @@ ru:
         atm_filter:
           attributes:
             longitude:
-              blank: не может быть пустым
+              blank: не может быть пустой
               not_a_number: не число
               less_than_or_equal_to: вне допустимого диапазона
             latitude:
-              blank: не может быть пустым
+              blank: не может быть пустой
               not_a_number: не число
               less_than_or_equal_to: вне допустимого диапазона
   activerecord:
@@ -36,7 +36,8 @@ ru:
         location:
           attributes:
             default_settings: &default_settings
-              blank: не может быть пустым
+              blank: не может быть пустой
+              not_a_number: должна быть числом
             latitude:
               <<: *default_settings
             longitude:

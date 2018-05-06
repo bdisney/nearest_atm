@@ -17,7 +17,7 @@ feature 'Create atm with location', %q{
     expect(page).to have_content(I18n.t('activerecord.notices.atm_cteated'))
   end
 
-  scenario 'User create atm with location with valid data' do
+  scenario 'User tries create atm with location with unvalid data' do
     visit new_atm_path
     fill_in 'atm_address', with: 'New address'
     fill_in 'atm_location_latitude', with: nil

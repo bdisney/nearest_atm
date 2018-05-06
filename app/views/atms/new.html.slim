@@ -1,0 +1,3 @@
+- if @atm.errors.any?
+  = render partial: 'shared/flash_messages', locals: { resource: @atm }
+= render 'form'

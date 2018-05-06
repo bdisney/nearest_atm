@@ -1,2 +1,12 @@
 = render partial: 'shared/notice'
-= link_to t('buttons.new'), new_atm_path
+
+p
+  = link_to t('buttons.new'), new_atm_path
+
+.atm-filter.text-center
+  = render 'filter'
+  .result-table
+  - if @results.present?
+    = render 'result_table'
+  - else
+    h3 = t('activerecord.attributes.atm.no_records') if params[:filter]

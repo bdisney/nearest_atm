@@ -1,0 +1,13 @@
+= render partial: 'shared/flash_messages', locals: { resource: @atm_filter }
+= form_for @atm_filter, as: :filter, url: atms_path, method: :get,
+  html: { class: 'form-inline' } do |f|
+  .form-group
+    label for="filter_latitude" = AtmFilter.human_attribute_name(:latitude)
+    | &nbsp
+    = f.text_field :latitude, class: 'form-control'
+  | &nbsp
+  .form-group
+    label for="filter_longitude"  = AtmFilter.human_attribute_name(:longitude)
+    | &nbsp
+    = f.text_field :longitude, class: 'form-control'
+  = f.submit t('buttons.search'), class: 'btn btn-default'

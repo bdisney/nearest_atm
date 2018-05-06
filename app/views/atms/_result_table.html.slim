@@ -1,0 +1,16 @@
+h3 = search_results_header
+
+table.table.table-condensed.text-center
+  thead
+    tr
+      th.text-center #
+      th.text-center = 'Банкомат'
+      th.text-center = 'Адрес'
+      th.text-center = 'Расстояние (км)'
+  tbody
+    - @results.each.with_index(1) do |record, index|
+      tr
+        td.text-center = index
+        td.text-center = record.atm_id
+        td.text-center = record.address
+        td.text-center = rounded_value(record.distance)

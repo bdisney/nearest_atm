@@ -1,9 +1,13 @@
 class AtmsController < ApplicationController
+  before_action :set_atm_filter, only: :index
+
   def new
     @atm = Atm.new
   end
 
-  def index; end
+  def index
+    @results = @atm_filter.perform if @atm_filter.valid?
+  end
 
   def create
     @atm = Atm.new(atm_params)
@@ -24,5 +28,14 @@ class AtmsController < ApplicationController
 
   def location_params
     params.require(:atm).require(:location).permit(:latitude, :longitude)
+  end
+
+  def filter_params
+    return {} unless params[:filter]
+    params.require(:filter).permit(:latitude, :longitude)
+  end
+
+  def set_atm_filter
+    @atm_filter ||= AtmFilter.new(filter_params)
   end
 end

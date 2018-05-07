@@ -5,12 +5,32 @@ ru:
     show: Просмотр
     new: Добавить
     save: Сохранить
+    search: Найти
+  activemodel:
+    attributes:
+      atm_filter:
+        latitude: Широта
+        longitude: Долгота
+        atm: Банкомат
+        distance: Расстояние (км)
+        address: Адрес
+    errors:
+      models:
+        atm_filter:
+          attributes:
+            longitude:
+              blank: не может быть пустой
+              not_a_number: не число
+              less_than_or_equal_to: вне допустимого диапазона
+            latitude:
+              blank: не может быть пустой
+              not_a_number: не число
+              less_than_or_equal_to: вне допустимого диапазона
   activerecord:
     notices:
       atm_cteated: Банкомат успешно создан
     errors:
-      header_title:
-        При сохранение проиизошли следующие ошибки
+      header_title: 'Произошли следующие ошибки:'
       models:
         atm:
           attributes:
@@ -19,7 +39,8 @@ ru:
         location:
           attributes:
             default_settings: &default_settings
-              blank: не может быть пустым
+              blank: не может быть пустой
+              not_a_number: должна быть числом
             latitude:
               <<: *default_settings
             longitude:
@@ -27,6 +48,8 @@ ru:
     attributes:
       atm:
         address: Адрес банкомата
+        search_results: 'На расстоянии %{distance} км найдено банкоматов: %{qty}'
+        no_records: 'Банкоматы не найдены'
       location:
         latitude: Широта
         longitude: Долгота

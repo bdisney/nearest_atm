@@ -9,7 +9,7 @@ feature 'Create atm with location', %q{
   scenario 'User create atm with location with valid data' do
     visit new_atm_path
     fill_in 'atm_address', with: 'New address'
-    fill_in 'atm_location_latitude', with: 100
+    fill_in 'atm_location_latitude', with: 90
     fill_in 'atm_location_longitude', with: 50
     find('input[name="commit"]').click
 

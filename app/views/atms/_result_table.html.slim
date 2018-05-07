@@ -1,0 +1,16 @@
+h3 = search_results_header
+
+table.table.table-condensed.text-center
+  thead
+    tr
+      th.text-center #
+      th.text-center = t('activemodel.attributes.atm_filter.atm')
+      th.text-center = t('activemodel.attributes.atm_filter.address')
+      th.text-center = t('activemodel.attributes.atm_filter.distance')
+  tbody
+    - @results.each.with_index(1) do |record, index|
+      tr
+        td.text-center = index
+        td.text-center = record.id
+        td.text-center = record.address
+        td.text-center = rounded_value(record.distance)

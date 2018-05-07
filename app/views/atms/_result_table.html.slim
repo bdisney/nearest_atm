@@ -11,6 +11,6 @@ table.table.table-condensed.text-center
     - @results.each.with_index(1) do |record, index|
       tr
         td.text-center = index
-        td.text-center = record.atm_id
+        td.text-center = record.id
         td.text-center = record.address
         td.text-center = rounded_value(record.distance)

@@ -28,6 +28,6 @@ feature 'Search nearest atms', %q{
     find('input[name="commit"]').click
 
     expect(page).to_not have_content('Some address')
-    expect(page).to have_content(I18n.t('activerecord.errors.header_title'))
+    expect(page).to have_content(I18n.t('activerecord.attributes.atm.no_records'))
   end
 end

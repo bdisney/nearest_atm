@@ -4,18 +4,21 @@ class Atm < ApplicationRecord
   validate :location_fields, if: :location_invalid?
 
   DISTANCE_THRESHOLD = 25000.freeze
+  RESULT_LIMIT = 5.freeze
 
   def self.nearest(lat, long, distance_threshold = DISTANCE_THRESHOLD)
     Rails.cache.fetch([self.class.name, lat, long], expires_in: 1.hour) {
-      Location.find_by_sql("
-        SELECT * FROM (SELECT *, ( 6371 * acos( cos( radians(#{lat}) ) * cos( radians( latitude ) )
-        * cos( radians( longitude ) - radians(#{long}) )
-        + sin( radians(#{lat}) ) * sin ( radians ( latitude ) ) ) ) AS distance
-        FROM locations
-        LEFT OUTER JOIN atms on locations.atm_id = atms.id) as qq
+      find_by_sql("
+        SELECT atms.*, locs.distance
+        FROM (
+          SELECT *, ( 6371 * acos( cos( radians(#{lat}) ) * cos( radians( latitude ) )
+                           * cos( radians( longitude ) - radians(#{long}) )
+                           + sin( radians(#{lat}) ) * sin ( radians ( latitude ) ) )
+        ) AS distance FROM locations) as locs
+        INNER JOIN atms on locs.atm_id = atms.id
         WHERE distance < #{distance_threshold}
         ORDER BY distance
-        LIMIT 5;
+        LIMIT #{RESULT_LIMIT};
       ")
     }
   end

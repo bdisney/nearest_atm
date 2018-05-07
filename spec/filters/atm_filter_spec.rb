@@ -15,7 +15,7 @@ RSpec.describe AtmFilter do
       it 'finds locations by latitude and longitude' do
         Rails.cache.clear
         expect(subject.perform.size).to eq(2)
-        expect(subject.perform.first.atm_id).to eq(atm_1.id)
+        expect(subject.perform.first.id).to eq(atm_1.id)
       end
     end
 

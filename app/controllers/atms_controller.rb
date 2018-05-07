@@ -6,7 +6,7 @@ class AtmsController < ApplicationController
   end
 
   def index
-    @results = @atm_filter.perform if params[:filter] && @atm_filter.valid?
+    @results = @atm_filter.perform if @atm_filter.valid?
   end
 
   def create
